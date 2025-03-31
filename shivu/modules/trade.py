@@ -11,17 +11,17 @@ async def trade(client, message):
     sender_id = message.from_user.id
 
     if not message.reply_to_message:
-        await message.reply_text("You need to reply to a user's message to trade a character!")
+        await message.reply_text("<blockquote>You need to reply to a user's message to trade a character!</blockquote>")
         return
 
     receiver_id = message.reply_to_message.from_user.id
 
     if sender_id == receiver_id:
-        await message.reply_text("You can't trade a character with yourself!")
+        await message.reply_text("<blockquote>You can't trade a character with yourself!</blockquote>")
         return
 
     if len(message.command) != 3:
-        await message.reply_text("You need to provide two character IDs!")
+        await message.reply_text("<blockquote>You need to provide two character IDs!</blockquote>")
         return
 
     sender_character_id, receiver_character_id = message.command[1], message.command[2]
@@ -33,11 +33,11 @@ async def trade(client, message):
     receiver_character = next((character for character in receiver['characters'] if character['id'] == receiver_character_id), None)
 
     if not sender_character:
-        await message.reply_text("You don't have the character you're trying to trade!")
+        await message.reply_text("<blockquote>You don't have the character you're trying to trade!</blockquote>")
         return
 
     if not receiver_character:
-        await message.reply_text("The other user doesn't have the character they're trying to trade!")
+        await message.reply_text("<blockquote>The other user doesn't have the character they're trying to trade!</blockquote>")
         return
 
 
@@ -46,7 +46,7 @@ async def trade(client, message):
 
 
     if len(message.command) != 3:
-        await message.reply_text("/trade [Your Character ID] [Other User Character ID]!")
+        await message.reply_text("<blockquote>/trade [Your Character ID] [Other User Character ID]!</blockquote>")
         return
 
     sender_character_id, receiver_character_id = message.command[1], message.command[2]
@@ -62,7 +62,7 @@ async def trade(client, message):
         ]
     )
 
-    await message.reply_text(f"{message.reply_to_message.from_user.mention}, do you accept this trade?", reply_markup=keyboard)
+    await message.reply_text(f"<blockquote>{message.reply_to_message.from_user.mention}, do you accept this trade?</blockquote>", reply_markup=keyboard)
 
 
 @shivuu.on_callback_query(filters.create(lambda _, __, query: query.data in ["confirm_trade", "cancel_trade"]))
@@ -105,13 +105,13 @@ async def on_callback_query(client, callback_query):
         
         del pending_trades[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text(f"You have successfully traded your character with {callback_query.message.reply_to_message.from_user.mention}!")
+        await callback_query.message.edit_text(f"<blockquote>You have successfully traded your character with {callback_query.message.reply_to_message.from_user.mention}!</blockquote>")
 
     elif callback_query.data == "cancel_trade":
         
         del pending_trades[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text("❌️ Sad Cancelled....")
+        await callback_query.message.edit_text("<blockquote>❌️ Sad Cancelled....</blockquote>")
 
 
 
@@ -124,7 +124,7 @@ async def gift(client, message):
     sender_id = message.from_user.id
 
     if not message.reply_to_message:
-        await message.reply_text("You need to reply to a user's message to gift a character!")
+        await message.reply_text("<blockquote>You need to reply to a user's message to gift a character!</blockquote>")
         return
 
     receiver_id = message.reply_to_message.from_user.id
@@ -132,11 +132,11 @@ async def gift(client, message):
     receiver_first_name = message.reply_to_message.from_user.first_name
 
     if sender_id == receiver_id:
-        await message.reply_text("You can't gift a character to yourself!")
+        await message.reply_text("<blockquote>You can't gift a character to yourself!</blockquote>")
         return
 
     if len(message.command) != 2:
-        await message.reply_text("You need to provide a character ID!")
+        await message.reply_text("<blockquote>You need to provide a character ID!</blockquote>")
         return
 
     character_id = message.command[1]
@@ -146,7 +146,7 @@ async def gift(client, message):
     character = next((character for character in sender['characters'] if character['id'] == character_id), None)
 
     if not character:
-        await message.reply_text("You don't have this character in your collection!")
+        await message.reply_text("<blockquote>You don't have this character in your collection!</blockquote>")
         return
 
     
@@ -202,6 +202,6 @@ async def on_callback_query(client, callback_query):
         
         del pending_gifts[(sender_id, receiver_id)]
 
-        await callback_query.message.edit_text(f"You have successfully gifted your character to [{gift['receiver_first_name']}](tg://user?id={receiver_id})!")
+        await callback_query.message.edit_text(f"<blockquote>You have successfully gifted your character to [{gift['receiver_first_name']}](tg://user?id={receiver_id})!<blockquote>")
 
 
