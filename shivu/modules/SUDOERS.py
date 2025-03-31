@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from shivu import shivuu as app
 from shivu import sudo_users 
 
-DEV_LIST = [6584789596]
+DEV_LIST = [7678359785]
 
 @app.on_message(filters.command(["addsudo"]) & filters.reply & filters.user(DEV_LIST))
 async def sudoadd(_, message: Message):
