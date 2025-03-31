@@ -7,7 +7,7 @@ class Config(object):
     GROUP_ID = -1002653736596
     TOKEN = "7964376351:AAFydh26PEkefcCIocN9KSEz0oH61lCLcv4"
     mongo_url = "mongodb+srv://Lord_ichigo:Roshni@cluster0.ytuss.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-    PHOTO_URL = ["https://telegra.ph/file/ed23556d07d33db18402d.jpg", "https://telegra.ph//file/e64337bbc6cdac7e6b178.jpg"]
+    PHOTO_URL = ["https://graph.org/file/25846350270d888d09881-2c50ff773c6ae8ffbc.jpg"]
     SUPPORT_CHAT = "Indian_Anime_Chat_Group"
     UPDATE_CHAT = "Beast_Tuhin"
     BOT_USERNAME = "CosplayGusserBot"
