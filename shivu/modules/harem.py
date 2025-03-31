@@ -36,14 +36,14 @@ async def harem(update: Update, context: CallbackContext, page=0, edit=False) ->
     page = max(0, min(page, total_pages - 1))
     current_characters = characters[page * 10:(page + 1) * 10]
 
-    harem_message = f"<b>{escape(update.effective_user.first_name)}'s Harem - Page {page + 1}/{total_pages}</b>\n"
+    harem_message = f"<blockquote><b>{escape(update.effective_user.first_name)}'s Cosplay Harem - Page {page + 1}/{total_pages}</b></blockquote>\n"
     for character in current_characters:
         anime = character.get("anime", "Unknown")
         count = await collection.count_documents({"anime": anime})
         harem_message += f'\n𖤍 <b>{anime}</b> ｛{len(characters)}/{count}｝\n'
-        harem_message += f'⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋\n'
+        harem_message += '⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋\n'
         harem_message += f'<b>𒄬</b> {character["id"]} [ {character["rarity"][0]} ] {character["name"]}\n'
-        harem_message += f'⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋\n'
+        harem_message += '⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋⚋\n'
 
     keyboard = [[InlineKeyboardButton("💠 Inline 💠", switch_inline_query_current_chat=f"collection.{user_id}")]]
     if total_pages > 1:
@@ -119,4 +119,4 @@ async def button(update: Update, context: CallbackContext) -> None:
 application.add_handler(CommandHandler(["hharem"], harem, block=False))
 application.add_handler(CallbackQueryHandler(harem_callback, pattern='^harem', block=False))
 application.add_handler(CommandHandler("hhmode", set_hmode))
-application.add_handler(CallbackQueryHandler(button, pattern='^default$|^rarity$|^common$|^rare$|^legendary$|^spacial_edition$|^premium_edition$|^supreme$', block=False))
+application.add_handler(CallbackQueryHandler(button, pattern='^default$|^rarity$|^celestial$|^pookie$|^phantom$|^sexy$|^loli$|^eclipse$', block=False))
