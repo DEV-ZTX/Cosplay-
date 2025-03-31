@@ -11,7 +11,7 @@ async def add_rarity(update: Update, context: CallbackContext) -> None:
         await update.message.reply_html("<b>You haven't caught any characters yet.</b>")
         return
 
-    rarities = ["🟢 Common", "🟣 Rare", "🟡 Legendary", "💮 Special Edition", "🔮 Premium Edition", "🎗️ Supreme"]
+    rarities = ["⛩️ Celestial", "🎀 Pookie", "🖤 Phantom", "🥀 Sexy", "👻 Loli", "🎗️ Eclipse"]
     current_rarity = user.get('selected_rarity')
 
     keyboard = []
