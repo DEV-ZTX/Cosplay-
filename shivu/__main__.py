@@ -1,10 +1,25 @@
-import importlib import time import random import re import asyncio from html import escape
+import importlib
+import time
+import random 
+import re 
+import asyncio 
+from html import escape 
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup from telegram import InlineKeyboardMarkup, InlineKeyboardButton from telegram import Update from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
+from telegram 
+import InlineKeyboardButton, InlineKeyboardMarkup 
+from telegram import InlineKeyboardMarkup, InlineKeyboardButton 
+from telegram import Update 
+from telegram.ext import CommandHandler, CallbackContext, MessageHandler, filters
 
 from shivu import collection, top_global_groups_collection, group_user_totals_collection, user_collection, user_totals_collection, shivuu from shivu import application, SUPPORT_CHAT, UPDATE_CHAT, db, LOGGER from shivu.modules import ALL_MODULES
 
-locks = {} message_counters = {} spam_counters = {} last_characters = {} sent_characters = {} first_correct_guesses = {} message_counts = {}
+locks = {} 
+message_counters = {} 
+spam_counters = {} 
+last_characters = {} 
+sent_characters = {} 
+first_correct_guesses = {} 
+message_counts = {}
 
 for module_name in ALL_MODULES: imported_module = importlib.import_module("shivu.modules." + module_name)
 
