@@ -1,7 +1,7 @@
 from pymongo import MongoClient, WriteConcern
 
 # Replace with your actual connection string
-connection_string = "mongodb+srv://Epic2:w85NP8dEHmQxA5s7@cluster0.tttvsf9.mongodb.net/?retryWrites=true&w=majority"
+connection_string = "mongodb+srv://Lord_ichigo:Roshni@cluster0.ytuss.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 client = MongoClient(connection_string)
 
 # Specify your database correctly
