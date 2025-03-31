@@ -10,9 +10,9 @@ class Config(object):
     PHOTO_URL = ["https://telegra.ph/file/ed23556d07d33db18402d.jpg", "https://telegra.ph//file/e64337bbc6cdac7e6b178.jpg"]
     SUPPORT_CHAT = "Indian_Anime_Chat_Group"
     UPDATE_CHAT = "Beast_Tuhin"
-    BOT_USERNAME = "Grabbing_Your_Waifu_XBot"
+    BOT_USERNAME = "CosplayGusserBot"
     BOT_NAME = "˹𝐆ʀᴀʙʙɪɴɢ 𝐘ᴏᴜʀ 𝐖ᴀɪғᴜ˼ 🥀"
-    CHARA_CHANNEL_ID = "-1002031911980"
+    CHARA_CHANNEL_ID = "-1002673491787"
     api_id = 23568641
     api_hash = "a39098e8752a45c2d6d1889941547bbc"
 
