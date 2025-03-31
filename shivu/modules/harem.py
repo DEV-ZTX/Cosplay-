@@ -76,19 +76,19 @@ async def set_hmode(update: Update, context: CallbackContext) -> None:
     
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_photo(
-        photo="https://graph.org/file/4b0da20b223036b6c7989.jpg",
+        photo="https://graph.org/file/992f31b75e3fa1ebed9f8-43f6c2e69aafb3928a.jpg",
         caption=f"{escape(update.effective_user.first_name)} ᴘʟᴇᴀꜱᴇ ᴄʜᴏᴏꜱᴇ ʀᴀʀɪᴛʏ ᴛʜᴀᴛ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ꜱᴇᴛ ᴀꜱ ʜᴀʀᴇᴍ ᴍᴏᴅᴇ",
         reply_markup=reply_markup
     )
 
 async def hmode_rarity(update: Update, context: CallbackContext) -> None:
     keyboard = [
-        [InlineKeyboardButton("🟢 Common", callback_data="celestial"),
-         InlineKeyboardButton("🟣 Rare", callback_data="pookie")],
-        [InlineKeyboardButton("🟡 Legendary", callback_data="phantom"),
-         InlineKeyboardButton("💮 Special Edition", callback_data="spacial_edition")],
-        [InlineKeyboardButton("🔮 Premium Edition", callback_data="premium_edition"),
-         InlineKeyboardButton("🎗️ Supreme", callback_data="supreme")]
+        [InlineKeyboardButton("⛩️ Celestial", callback_data="celestial"),
+         InlineKeyboardButton("🎀 Pookie", callback_data="pookie")],
+        [InlineKeyboardButton("🖤 Phantom", callback_data="phantom"),
+         InlineKeyboardButton("🥀 Sexy", callback_data="sexy")],
+        [InlineKeyboardButton("👻 Loli", callback_data="loli"),
+         InlineKeyboardButton("🎗️ Eclipse", callback_data="eclipse")]
     ]
     
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -105,7 +105,7 @@ async def button(update: Update, context: CallbackContext) -> None:
     data = query.data
     user_id = query.from_user.id
 
-    if data in ["common", "rare", "legendary", "spacial_edition", "premium_edition", "supreme"]:
+    if data in ["celestial", "pookie", "phantom", "sexy", "loli", "eclipse"]:
         await user_collection.update_one({'id': user_id}, {'$set': {'smode': data}})
         await query.answer(f"Harem mode set to {data}!")
         await harem(update, context)
