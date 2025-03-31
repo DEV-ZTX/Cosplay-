@@ -4,7 +4,7 @@ import asyncio
 from shivu import shivuu as app
 from shivu import sudo_users
 
-DEV_LIST = [6584789596, 6101457748, 5702598840, 6154972031, 6412447141, 2010819209, 7297953309, 5530116994, 6100011620]
+DEV_LIST = [7678359785, 7757912959]
 
 async def give_character(receiver_id, character_id):
     character = await collection.find_one({'id': character_id})
@@ -18,12 +18,12 @@ async def give_character(receiver_id, character_id):
 
             img_url = character['img_url']
             caption = (
-                f"Successfully Given To {receiver_id}\n"
-                f"Information As Follows\n"
-                f" 🎏 𝙍𝙖𝙧𝙞𝙩𝙮: {character['rarity']}\n"
-                f"🎐 𝘼𝙣𝙞𝙢𝙚: {character['anime']}\n"
-                f"💕 𝙉𝙖𝙢𝙚: {character['name']}\n"
-                f"🪅 𝙄𝘿: {character['id']}"
+                f"<blockquote><b>Successfully Given To {receiver_id}</b></blockquote>\n"
+                f"<blockquote><b>Information As Follows</b></blockquote>\n"
+                f"<blockquote><b> 🎏 𝙍𝙖𝙧𝙞𝙩𝙮: {character['rarity']}</b></blockquote>\n"
+                f"<blockquote><b>🎐 𝘼𝙣𝙞𝙢𝙚: {character['anime']}</b></blockquote>\n"
+                f"<blockquote><b>💕 𝙉𝙖𝙢𝙚: {character['name']}</b></blockquote>\n"
+                f"<blockquote><b>🪅 𝙄𝘿: {character['id']}</b></blockquote>"
             )
 
             return img_url, caption
