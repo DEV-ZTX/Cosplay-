@@ -11,7 +11,7 @@ class Config(object):
     SUPPORT_CHAT = "Indian_Anime_Chat_Group"
     UPDATE_CHAT = "Beast_Tuhin"
     BOT_USERNAME = "CosplayGusserBot"
-    BOT_NAME = "˹𝐆ʀᴀʙʙɪɴɢ 𝐘ᴏᴜʀ 𝐖ᴀɪғᴜ˼ 🥀"
+    BOT_NAME = "𝗚𝘂𝗲𝘀𝘀 𝗧𝗵𝗲 𝗖𝗼𝘀𝗽𝗹𝗮𝘆 ꕥ"
     CHARA_CHANNEL_ID = "-1002673491787"
     api_id = 23568641
     api_hash = "a39098e8752a45c2d6d1889941547bbc"
