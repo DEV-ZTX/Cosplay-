@@ -2,19 +2,19 @@ class Config(object):
     LOGGER = True
 
     # Get this value from my.telegram.org/apps
-    OWNER_ID = "6584789596"
-    sudo_users = "6584789596", "2010819209", "5702598840", "6764240805", "6101457748", "6154972031", "6100011620", "6412447141", "1643054031"
-    GROUP_ID = -1002214016605
-    TOKEN = "6639816047:AAFwzilYfHCrnIuyBFdJZjvBJn09hfHJ_WY"
-    mongo_url = "mongodb+srv://Epic2:w85NP8dEHmQxA5s7@cluster0.tttvsf9.mongodb.net/?retryWrites=true&w=majority"
+    OWNER_ID = "8177810307"
+    sudo_users = "7757912959", "7678359785"
+    GROUP_ID = -1002653736596
+    TOKEN = "7964376351:AAFydh26PEkefcCIocN9KSEz0oH61lCLcv4"
+    mongo_url = "mongodb+srv://Lord_ichigo:Roshni@cluster0.ytuss.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     PHOTO_URL = ["https://telegra.ph/file/ed23556d07d33db18402d.jpg", "https://telegra.ph//file/e64337bbc6cdac7e6b178.jpg"]
-    SUPPORT_CHAT = "Grabbing_Your_WH_Group"
-    UPDATE_CHAT = "FLEX_BOTS_NEWS"
+    SUPPORT_CHAT = "Indian_Anime_Chat_Group"
+    UPDATE_CHAT = "Beast_Tuhin"
     BOT_USERNAME = "Grabbing_Your_Waifu_XBot"
     BOT_NAME = "˹𝐆ʀᴀʙʙɪɴɢ 𝐘ᴏᴜʀ 𝐖ᴀɪғᴜ˼ 🥀"
     CHARA_CHANNEL_ID = "-1002031911980"
-    api_id = 24089031
-    api_hash = "0615e3afe13ddaaf8e9ddbd3977d35ff"
+    api_id = 23568641
+    api_hash = "a39098e8752a45c2d6d1889941547bbc"
 
     STRICT_GBAN = True
     ALLOW_CHATS = True
