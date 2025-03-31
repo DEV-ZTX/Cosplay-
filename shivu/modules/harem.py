@@ -7,12 +7,12 @@ from shivu import collection, user_collection, application
 async def harem(update: Update, context: CallbackContext, page=0, edit=False) -> None:
     user_id = update.effective_user.id
     harem_mode_mapping = {
-        "common": "🟢 Common",
-        "rare": "🟣 Rare",
-        "legendary": "🟡 Legendary",
-        "spacial_edition": "💮 Spacial Edition",
-        "premium_edition": "🔮 Premium Edition",
-        "supreme": "🎗️ Supreme",
+        "celestial": "⛩️ Celestial",
+        "pookie": "🎀 Pookie",
+        "phantom": "🖤 Phantom",
+        "sexy": "🥀 Sexy",
+        "loli": "👻 Loli",
+        "eclipse": "🎗️ Eclipse",
         "default": None
     }
 
@@ -83,9 +83,9 @@ async def set_hmode(update: Update, context: CallbackContext) -> None:
 
 async def hmode_rarity(update: Update, context: CallbackContext) -> None:
     keyboard = [
-        [InlineKeyboardButton("🟢 Common", callback_data="common"),
-         InlineKeyboardButton("🟣 Rare", callback_data="rare")],
-        [InlineKeyboardButton("🟡 Legendary", callback_data="legendary"),
+        [InlineKeyboardButton("🟢 Common", callback_data="celestial"),
+         InlineKeyboardButton("🟣 Rare", callback_data="pookie")],
+        [InlineKeyboardButton("🟡 Legendary", callback_data="phantom"),
          InlineKeyboardButton("💮 Special Edition", callback_data="spacial_edition")],
         [InlineKeyboardButton("🔮 Premium Edition", callback_data="premium_edition"),
          InlineKeyboardButton("🎗️ Supreme", callback_data="supreme")]
