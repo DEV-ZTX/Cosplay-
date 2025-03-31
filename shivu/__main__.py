@@ -118,7 +118,49 @@ if sorted(name_parts) == sorted(guess.split()) or any(part == guess for part in 
 else:
     await update.message.reply_text('<blockquote>Please Write Correct Character Name... ❌️</blockquote>', parse_mode='HTML')
 
-def main() -> None: application.add_handler(CommandHandler(["guess", "protecc", "collect", "grab", "hunt"], guess, block=False)) application.add_handler(MessageHandler(filters.ALL, message_counter, block=False)) application.run_polling(drop_pending_updates=True)
+async def fav(update: Update, context: CallbackContext) -> None:
+    user_id = update.effective_user.id
 
-if name == "main": shivuu.start() LOGGER.info("Bot started") main()
+    
+    if not context.args:
+        await update.message.reply_text('<blockquote>Please provide Character id...</blockquote>')
+        return
 
+    character_id = context.args[0]
+
+    
+    user = await user_collection.find_one({'id': user_id})
+    if not user:
+        await update.message.reply_text('<blockquote>You have not Guessed any characters yet....</blockquote>')
+        return
+
+
+    character = next((c for c in user['characters'] if c['id'] == character_id), None)
+    if not character:
+        await update.message.reply_text('This Character is Not In your collection')
+        return
+
+    
+    user['favorites'] = [character_id]
+
+    
+    await user_collection.update_one({'id': user_id}, {'$set': {'favorites': user['favorites']}})
+
+    await update.message.reply_text(f'<blockquote>Character {character["name"]} has been added to your favorite...</blockquote>')
+    
+
+
+
+def main() -> None:
+    """Run bot."""
+
+    application.add_handler(CommandHandler(["guess", "protecc", "collect", "grab", "hunt"], guess, block=False))
+    application.add_handler(CommandHandler("fav", fav, block=False))
+    application.add_handler(MessageHandler(filters.ALL, message_counter, block=False))
+
+    application.run_polling(drop_pending_updates=True)
+    
+if __name__ == "__main__":
+    shivuu.start()
+    LOGGER.info("Bot started")
+    main()
