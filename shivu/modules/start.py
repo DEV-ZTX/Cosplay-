@@ -53,6 +53,7 @@ if query.data == 'help':
         "<code>/topgroups</code> - See top groups with the most active collectors\n"
         "<code>/top</code> - View top cosplay collectors\n"
         "<code>/changetime</code> - Adjust cosplay drop frequency (group only)"
+        "<code>/hharem</code> - opens the harem mode (group only)"
     )
     await query.edit_message_caption(
         caption=help_text,
