@@ -31,6 +31,7 @@ message_counts = {}
 last_user = {}
 warned_users = {}
 
+# Importing modules dynamically
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("shivu.modules." + module_name)
 
@@ -56,7 +57,7 @@ async def message_counter(update: Update, context: CallbackContext) -> None:
                 if user_id in warned_users and time.time() - warned_users[user_id] < 600:
                     return
                 await update.message.reply_text(
-                    f"<blockquote>⚠️ Don't Spam {update.effective_user.first_name}...\nYour Messages Will be ignored for 10 Minutes...</blockquote>",
+                    f"<blockquote>⚠️ Don't Spam {escape(update.effective_user.first_name)}...\nYour Messages Will be ignored for 10 Minutes...</blockquote>",
                     parse_mode='HTML'
                 )
                 warned_users[user_id] = time.time()
