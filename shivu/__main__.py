@@ -31,13 +31,12 @@ message_counts = {}
 last_user = {}
 warned_users = {}
 
-# Importing modules dynamically
 for module_name in ALL_MODULES:
     imported_module = importlib.import_module("shivu.modules." + module_name)
 
 def escape_markdown(text):
     escape_chars = r'\\*_`~>#+-=|{}.!'
-    return re.sub(r'([%s])' % re.escape(escape_chars), r'\\\\1', text)
+    return re.sub(r'([%s])' % re.escape(escape_chars), r'\\1', text)
 
 async def message_counter(update: Update, context: CallbackContext) -> None:
     chat_id = str(update.effective_chat.id)
@@ -57,7 +56,8 @@ async def message_counter(update: Update, context: CallbackContext) -> None:
                 if user_id in warned_users and time.time() - warned_users[user_id] < 600:
                     return
                 await update.message.reply_text(
-                    f"<blockquote>⚠️ Don't Spam {escape(update.effective_user.first_name)}...\nYour Messages Will be ignored for 10 Minutes...</blockquote>",
+                    f"<blockquote>⚠️ Don't Spam {escape(update.effective_user.first_name)}...\n"
+                    "Your Messages Will be ignored for 10 Minutes...</blockquote>", 
                     parse_mode='HTML'
                 )
                 warned_users[user_id] = time.time()
@@ -88,7 +88,8 @@ async def send_image(update: Update, context: CallbackContext) -> None:
     await context.bot.send_photo(
         chat_id=chat_id,
         photo=character['img_url'],
-        caption=f"<blockquote>A New {character['rarity']} Cosplay Character Appeared...\n/guess Character Name and add in Your Collection</blockquote>",
+        caption=f"<blockquote>A New {character['rarity']} Cosplay Character Appeared...\n"
+                "/guess Character Name and add in Your Collection</blockquote>",
         parse_mode='HTML'
     )
 
