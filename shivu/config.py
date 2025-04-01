@@ -12,7 +12,7 @@ class Config(object):
     UPDATE_CHAT = "Beast_Tuhin"
     BOT_USERNAME = "CosplayGusserBot"
     BOT_NAME = "𝗚𝘂𝗲𝘀𝘀 𝗧𝗵𝗲 𝗖𝗼𝘀𝗽𝗹𝗮𝘆 ꕥ"
-    CHARA_CHANNEL_ID = "-1002673491787"
+    CHARA_CHANNEL_ID = "-1002653736596"
     api_id = 23568641
     api_hash = "a39098e8752a45c2d6d1889941547bbc"
 
