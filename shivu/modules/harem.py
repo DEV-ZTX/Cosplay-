@@ -116,7 +116,7 @@ async def button(update: Update, context: CallbackContext) -> None:
         await harem(update, context)
 
 # Adding the handlers to the application
-application.add_handler(CommandHandler(["hharem"], harem, block=False))
+application.add_handler(CommandHandler(["harem"], harem, block=False))
 application.add_handler(CallbackQueryHandler(harem_callback, pattern='^harem', block=False))
-application.add_handler(CommandHandler("hhmode", set_hmode))
+application.add_handler(CommandHandler("hmode", set_hmode))
 application.add_handler(CallbackQueryHandler(button, pattern='^default$|^rarity$|^celestial$|^pookie$|^phantom$|^sexy$|^loli$|^eclipse$', block=False))
