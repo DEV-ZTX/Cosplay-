@@ -1,4 +1,4 @@
-import lib
+import importlib
 import time
 import random
 import re
