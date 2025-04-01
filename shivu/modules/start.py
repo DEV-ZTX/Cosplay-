@@ -40,7 +40,7 @@ async def start(update: Update, context: CallbackContext) -> None:
         "<blockquote><b>❖ Welcome, Cosplay Enthusiast!</b></blockquote>\n\n"
         "<blockquote><b>❍ I am the Ultimate Cosplay Character Collector Bot!</b></blockquote>\n"
         "Add me to your group, and I'll drop random Cosplay Character images every 100 messages!\n"
-        "Use <code>/guess</code> to collect your favorite characters and view them with <code>/coscollection</code>.\n"
+        "Use <code>/guess</code> to collect your favorite characters and view them with <code>/harem</code>.\n"
         "๏ Time to build your ultimate Cosplay Gallery!"
     )
 
