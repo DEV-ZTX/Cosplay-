@@ -1,8 +1,11 @@
-import random from html import escape
+import random 
+from html import escape
 
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update 
+from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
 
-from shivu import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, GROUP_ID from shivu import pm_users as collection
+from shivu import application, PHOTO_URL, SUPPORT_CHAT, UPDATE_CHAT, BOT_USERNAME, db, GROUP_ID 
+from shivu import pm_users as collection
 
 def get_keyboard(): """Generate the bot's main menu keyboard.""" return InlineKeyboardMarkup([ [InlineKeyboardButton("HELP", callback_data='help')], [InlineKeyboardButton("ADD ME", url=f'http://t.me/{BOT_USERNAME}?startgroup=new'), InlineKeyboardButton("UPDATES", url=f'https://t.me/{UPDATE_CHAT}')] ])
 
@@ -49,11 +52,11 @@ if query.data == 'help':
         "<code>/fav</code> - Add your favorite cosplay character\n"
         "<code>/trade</code> - Trade cosplay characters\n"
         "<code>/gift</code> - Gift a cosplay character to another user (group only)\n"
-        "<code>/coscollection</code> - View your cosplay character collection\n"
+        "<code>/harem</code> - View your cosplay character collection\n"
         "<code>/topgroups</code> - See top groups with the most active collectors\n"
         "<code>/top</code> - View top cosplay collectors\n"
         "<code>/changetime</code> - Adjust cosplay drop frequency (group only)"
-        "<code>/hharem</code> - opens the harem mode (group only)"
+        "<code>/hmode</code> - opens the harem mode (group only)"
     )
     await query.edit_message_caption(
         caption=help_text,
