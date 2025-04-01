@@ -1,5 +1,6 @@
 import random
 from html import escape
+from pymongo import ASCENDING
 
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import CallbackContext, CallbackQueryHandler, CommandHandler
@@ -77,13 +78,24 @@ async def button(update: Update, context: CallbackContext) -> None:
         )
     elif query.data == 'back':
         await query.edit_message_caption(
-            caption="<blockquote><b>Welcome, Cosplay Enthusiast!</b></blockquote>\n\n"
-                    "<blockquote><b>I am the Ultimate Cosplay Character Collector Bot!</b></blockquote>\n"
-                    "Add me to your group to start collecting amazing cosplay characters!",
+            caption=(
+                "<blockquote><b>Welcome, Cosplay Enthusiast!</b></blockquote>\n\n"
+                "<blockquote><b>I am the Ultimate Cosplay Character Collector Bot!</b></blockquote>\n"
+                "Add me to your group to start collecting amazing cosplay characters!"
+            ),
             reply_markup=get_keyboard(),
             parse_mode='HTML'
         )
 
+# Ensure database indexes are created properly
+try:
+    db.characters.create_index([('id', ASCENDING)])
+    db.characters.create_index([('anime', ASCENDING)])
+    db.characters.create_index([('img_url', ASCENDING)])
+except Exception as e:
+    print(f"Error creating database indexes: {e}")
+
+# Add handlers to the bot
 application.add_handler(CallbackQueryHandler(button, pattern='^(help|back)$', block=False))
 application.add_handler(CommandHandler('start', start, block=False))
         
